@@ -1,0 +1,200 @@
+Entrega 1
+
+Questão 1.
+X = 0.0
+Y = 18
+Z = X + Y
+print(Z)
+18.0
+type(Z)
+<class 'float'>
+
+
+Questão 5.
+
+b = 9
+h = 6
+Area = (b * h) / 2
+print(Area)
+27.0
+type(Area)
+<class 'float'>
+
+
+
+Entrega 2
+
+Questão 2.
+
+a = 54
+print(A)
+Traceback (most recent call last):
+  File "<pyshell#6>", line 1, in <module>
+    print(A)
+NameError: name 'A' is not defined. Did you mean: 'a'?
+type(A)
+Traceback (most recent call last):
+  File "<pyshell#7>", line 1, in <module>
+    type(A)
+NameError: name 'A' is not defined. Did you mean: 'a'?
+
+
+Questão 6.
+
+h-aula = 14,25
+SyntaxError: cannot assign to expression here. Maybe you meant '==' instead of '='?
+haula = 14,25
+hrabalhada = 163
+hextra = haula * 2
+hextratrabalhada = 20
+salariobruto = (haula * htrabalhada) + (hextra * hextratrabalhada)
+Traceback (most recent call last):
+  File "<pyshell#36>", line 1, in <module>
+    salariobruto = (haula * htrabalhada) + (hextra * hextratrabalhada)
+NameError: name 'htrabalhada' is not defined. Did you mean: 'hrabalhada'?
+htrabalhada = 163
+salariobruto = (haula * htrabalhada) + (hextra * hextratrabalhada)
+print(salariobruto)
+(14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25, 14, 25)
+haula = 14.25
+salariobruto = (haula * htrabalhada) + (hextra * hextratrabalhada)
+Traceback (most recent call last):
+  File "<pyshell#41>", line 1, in <module>
+    salariobruto = (haula * htrabalhada) + (hextra * hextratrabalhada)
+TypeError: unsupported operand type(s) for +: 'float' and 'tuple'
+haula2 = 14.25
+salariobruto = (haula2 * htrabalhada) + (hextra * hextratrabalhada)
+Traceback (most recent call last):
+  File "<pyshell#43>", line 1, in <module>
+    salariobruto = (haula2 * htrabalhada) + (hextra * hextratrabalhada)
+TypeError: unsupported operand type(s) for +: 'float' and 'tuple'
+hextra = haula2 * 2
+salariobruto = (haula2 * htrabalhada) + (hextra * hextratrabalhada)
+print(salariobruto)
+2892.75
+
+
+
+Entrega 3
+
+Questão 3.
+
+S = "FATEC SÃO PAULO"
+type(S)
+<class 'str'>
+
+
+Questão 7.
+
+A = 4
+B = 5
+C = 1
+R = (A + B) / 2
+print(R)
+4.5
+R = [(3A) + (2B)] / (A + B)
+SyntaxError: invalid decimal literal
+R = [(3 * A) + (2 * B)] / (A + B)
+Traceback (most recent call last):
+  File "<pyshell#56>", line 1, in <module>
+    R = [(3 * A) + (2 * B)] / (A + B)
+TypeError: unsupported operand type(s) for /: 'list' and 'int'
+A = 4.0
+B = 5.0
+C = 1.0
+R = [(3 * A) + (2 * B)] + (A + B)
+Traceback (most recent call last):
+  File "<pyshell#60>", line 1, in <module>
+    R = [(3 * A) + (2 * B)] + (A + B)
+TypeError: can only concatenate list (not "float") to list
+((3 * A) + (2 * B)) + (A + B)
+31.0
+R = ((3 * A) + (2 * B)) + (A + B)
+print(R)
+31.0
+A = 4
+B = 5
+C = 1
+R = ((3 * A) + (2 * B)) + (A + B)
+print(R)
+31
+type(R)
+<class 'int'>
+x = (-B + sqrt(B ** 2 - (4 * A * C))) / 2A
+SyntaxError: invalid decimal literal
+x = (-B + sqrt(B ** 2 - (4 * A * C))) / (2 * A)
+Traceback (most recent call last):
+  File "<pyshell#71>", line 1, in <module>
+    x = (-B + sqrt(B ** 2 - (4 * A * C))) / (2 * A)
+NameError: name 'sqrt' is not defined
+import math
+x = (-B + sqrt(B ** 2 - (4 * A * C))) / (2 * A)
+Traceback (most recent call last):
+  File "<pyshell#73>", line 1, in <module>
+    x = (-B + sqrt(B ** 2 - (4 * A * C))) / (2 * A)
+NameError: name 'sqrt' is not defined
+x = (-B + math.sqrt(B ** 2 - (4 * A * C))) / (2 * A)
+print(x)
+-0.25
+x = (-B - math.sqrt(B ** 2 - (4 * A * C))) / (2 * A)
+print(x)
+-1.0
+Z = (7.6 * A) - (B ** 1.7)
+print(Z)
+14.974153431999758
+
+
+
+Entrega 4
+
+Questão 4.
+
+A = 14
+B = 5
+C = A + B
+print(C)
+19
+C = A - B
+print(C)
+9
+C = A * B
+print(C)
+70
+C = A / B
+print(C)
+2.8
+C = A // B
+print(C)
+2
+C = A % B
+print(C)
+4
+C = A ** B
+print(C)
+537824
+
+Todas deram resultado igual ao da tabela
+
+
+Questão 8.
+
+haula = 14.25
+hextra = haula * 2
+htrabalhada = float(input("Digite a quantidade de horas trabalhadas: "))
+Digite a quantidade de horas trabalhadas: 163
+hextratrabalhada = float(input("Digite a quantidade de horas extras trabalhadas: "))
+Digite a quantidade de horas extras trabalhadas: 20
+type(htrabalhada)
+<class 'float'>
+print(hextratrabalhada)
+20.0
+salariobruto = (haula * htrabalhada) + (hextra * hextratrabalhada)
+print(salariobruto)
+2892.75
+htrabalhada = 8 * 21
+hextratrabalhada = 0
+print(salariobruto)
+2892.75
+salariobruto = (haula * htrabalhada) + (hextra * hextratrabalhada)
+print(salariobruto)
+2394.0

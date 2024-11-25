@@ -1,0 +1,13 @@
+comando for de Python é um Iterador
+
+os tipos:
+  list -> lista
+  tuple -> tupla
+  str -> string
+  dict -> dicionário
+  set -> conjunto
+são chamados de Iteráveis
+
+Assim, o comando for serve para realizar iterações 
+(laços - ou loops) com objetos iteráveis. 
+Por isso ele é chamado de Iterador.

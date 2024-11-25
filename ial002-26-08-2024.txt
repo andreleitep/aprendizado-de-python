@@ -1,0 +1,85 @@
+ex 5
+
+X = int(input("Escreva um número inteiro: "))
+if X > 0:
+    input("Número positivo.")
+elif X < 0:
+    print("Número negativo.")
+else:
+    print("Número zero.")
+
+
+ex 6
+
+Nome = input("Escreva o nome do lutador: ")
+Peso = float(input(f"Escreva o peso do {Nome}: "))
+
+if Peso < 65:
+    Categoria = "Pena"
+elif Peso >= 65 and Peso < 72:
+    Categoria = "Leve"
+elif Peso >= 72 and Peso < 79:
+    Categoria = "Ligeiro"
+elif Peso >= 79 and Peso < 86:
+    Categoria = "Meio médio"
+elif Peso >= 86 and Peso < 93:
+    Categoria = "Médio"
+elif 93 <= Peso < 100:
+    Categoria = "Meio pesado"
+elif Peso >= 100:
+    Categoria = "Pesado"
+
+print(f"Nome fornecido: {Nome}")
+print(f"Peso fornecido: {Peso}")
+print(f"Saída exibida na tela: O lutador {Nome} pesa {Peso} kg e se enquadra na categoria {Categoria}")
+
+
+ex 7
+
+import math
+
+print("Calculando uma equação de segundo grau:")
+a = float(input("Escreva o valor de a: "))
+b = float(input("Escreva o valor de b: "))
+c = float(input("Escreva o valor de c: "))
+delta = b ** 2 - 4 * a * c
+
+if delta == 0:
+    X1 = -b / (2 * a)
+    X2 = ""
+elif delta > 0:
+    rtDelta = math.sqrt(delta)
+    X1 = (-b + rtDelta) / (2 * a)
+    X2 = (-b - rtDelta) / (2 * a)
+else:
+    X1 = ""
+    X2 = ""
+
+print(f"Delta é igual a {delta}")
+if X1 != "" and X2 != "":
+    print(f"X é igual a {X1} ou {X2}.")
+elif X1 != "":
+    print(f"X é igual a {X1}.")
+else:
+    print("Esta equação não possui raízes reais.")
+
+
+Ex 8
+
+A = float(input("Escreva um dos lados do seu triângulo: "))
+B = float(input("Escreva outro lado do seu triângulo: "))
+C = float(input("Escreva o último lado do seu triângulo: "))
+
+if A+B>C and A+C>B and B+C>A:
+    print("Triângulo válido.")
+    if A == B == C:
+        print("É um triângulo equilátero.")
+    elif A == B or B == C or A == C:
+        print("É um triângulo isóceles.")
+    elif A != B and A != C and B != C:
+        print("É um triângulo escaleno.")
+
+    if A**2+B**2==C**2 or A**2+C**2==B**2 or B**2+C**2==A**2:
+        print("É um triângulo retângulo.")
+else:
+    print("Não é um triângulo.")
