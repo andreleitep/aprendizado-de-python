@@ -1,11 +1,3 @@
-# Só falta fazer os arquivos de saída
-    # Para isso, eu preciso transformar os casos do relatório de
-    # divergências em listas para depois escrever no arquivo.
-
-# |---------|
-# | Funções |
-# |---------|
-
 # |-----------|
 # | Principal |
 # |-----------|
@@ -14,13 +6,12 @@ i = 0
 linhaDict = {}
 p = 0
 v = 0
+lista = []
 
 Q = int(input('Quantos casos de teste você quer executar? '))
 
 try:
     while i < Q:
-        print('\n')
-        print(f'{i+1}º caso teste:\n')
         arqProdutos = open(f'c{i+1}_produtos.txt')
         linhaP = arqProdutos.readline().rstrip()
         while linhaP != '':
@@ -34,7 +25,7 @@ try:
                     'QtMin' : listaLinhaP[2]
                     }
             else:
-                print(f'Linha {p+1} - Código do produto inválido') # Relatório de divergências
+                lista.append(f'Linha {p+1} - Código do produto inválido') # Relatório de divergências
             linhaP = arqProdutos.readline().rstrip()
             p += 1
         arqProdutos.close()
@@ -45,13 +36,13 @@ try:
             listaLinhaV = linhaV.split(';')
             listaLinhaV[0] = int(listaLinhaV[0])
             if listaLinhaV[2] == '135':
-                print(f'Linha {v+1} - Venda cancelada')
+                lista.append(f'Linha {v+1} - Venda cancelada')
                     # Relatório de divergências
             elif listaLinhaV[2] == '190':
-                print(f'Linha {v+1} - Venda não finalizada')
+                lista.append(f'Linha {v+1} - Venda não finalizada')
                     # Relatório de divergências
             elif listaLinhaV[2] == '999':
-                print(f'Linha {v+1} - Erro desconhecido. Acionar a equipe de TI.')
+                lista.append(f'Linha {v+1} - Erro desconhecido. Acionar a equipe de TI.')
                     # Relatório de divergências
             else:
                 if listaLinhaV[0] in linhaDict:
@@ -62,7 +53,7 @@ try:
                         'Canal' : listaLinhaV[3]
                         })
                 else:
-                    print(f'Linha {v+1} - Código de Produto não encontrado {listaLinhaV[0]}')
+                    lista.append(f'Linha {v+1} - Código de Produto não encontrado {listaLinhaV[0]}')
                         # Relatório de Divergências
             linhaV = arqVendas.readline().rstrip()
             v += 1
@@ -70,32 +61,34 @@ try:
 
         # Necessidade de transferência Armazém para CO
 
-        print('\nNecessidade de transferência Armazém para CO\n')
-        print('Produto  EstInicial  QtMin  QtVendas  Estq.após  Necess.  Transf. de')
-        print('                                         Vendas            Arm p/ CO')
+        saida2 = open(f'c{i+1}_TRANSFERE.TXT', 'w')
+        
+        saida2.write('Necessidade de transferência Armazém para CO\n\n')
+        saida2.write('Produto  EstInicial  QtMin  QtVendas  Estq.após  Necess.  Transf. de\n')
+        saida2.write('                                         Vendas            Arm p/ CO\n')
         for li in linhaDict:
-            print(f'{li:>7}', end='')
-            print(f'{linhaDict[li]["EstInicial"]:>12}', end='')
-            print(f'{linhaDict[li]["QtMin"]:>7}', end='')
-            print(f'{linhaDict[li]["QtVendas"]:>10}', end='')
-            print(f'{linhaDict[li]["EstInicial"]-linhaDict[li]["QtVendas"]:>11}', end='')
+            saida2.write(f'{li:>7}')
+            saida2.write(f'{linhaDict[li]["EstInicial"]:>12}')
+            saida2.write(f'{linhaDict[li]["QtMin"]:>7}')
+            saida2.write(f'{linhaDict[li]["QtVendas"]:>10}')
+            saida2.write(f'{linhaDict[li]["EstInicial"]-linhaDict[li]["QtVendas"]:>11}')
             QtMin = linhaDict[li]['QtMin']
             Resto = linhaDict[li]["EstInicial"]-linhaDict[li]["QtVendas"]
             if Resto < QtMin:
                 necess = QtMin - Resto
             else:
                 necess = 0
-            print(f'{necess:>9}', end='')
+            saida2.write(f'{necess:>9}')
             if necess < 10 and necess != 0:
                 necess = 10
-                print(f'{necess:>12}', end='')
+                saida2.write(f'{necess:>12}\n')
             else:
-                print(f'{necess:>12}', end='')
-            print()
-
+                saida2.write(f'{necess:>12}\n')
+        saida2.close()
+            
         # Totais por Canal de Vendas
 
-        saida1 = open('c{i+1}_TOTCANAL.TXT', 'w')
+        saida1 = open(f'c{i+1}_TOTCANAL.TXT', 'w')
 
         Representantes = 0
         Website = 0
@@ -111,16 +104,27 @@ try:
             elif linhaDict[li]['Canal'] == '4':
                 iPhone += linhaDict[li]['QtVendas']
         
-        saida1.write('\nQuantidade de Vendas por canal\n')
-        saida1.write('Canal                 QtVendas')
-        saida1.write(f'1 - Representantes', f'{Representantes:>11}')
-        saida1.write(f'2 - Website', f'{Website:>18}')
-        saida1.write(f'3 - App móvel Android', f'{Android:>8}')
-        saida1.write(f'4 - App móvel iPhone', f'{iPhone:>9}')
-        saida1.write('\n')
-        saida1.write('-'*68)
-        
+        saida1.write('Quantidade de Vendas por canal\n\n')
+        saida1.write('Canal                 QtVendas\n')
+        saida1.write(f'1 - Representantes {Representantes:>11}\n')
+        saida1.write(f'2 - Website {Website:>18}\n')
+        saida1.write(f'3 - App móvel Android {Android:>8}\n')
+        saida1.write(f'4 - App móvel iPhone {iPhone:>9}\n')
+
+        saida1.close()
+
+        # Relatório de Divergências
+
+        saida3 = open(f'c{i+1}_DIVERGENCIAS.TXT', 'w')
+
+        saida3.write('Relatório de Divergências\n\n')
+        for ot in lista:
+            saida3.write(f'{ot}\n')
+
+        saida3.close()
+
         i += 1
+        
 except FileNotFoundError:
     print(f'Arquivo pertencente ao {i+1}º caso teste não encontrado.')
     print('Os arquivos de testes devem ser nomeado da seguinte maneira:')
@@ -130,10 +134,9 @@ except FileNotFoundError:
 
 
 for n in range(i):
-    print(f'Saídas do {n+1}º caso gravadas nos arquivos:')
+    print(f'\nSaídas do {n+1}º caso gravadas nos arquivos:')
     print(f'    c{n+1}_TRANSFERE.TXT')
     print(f'    c{n+1}_DIVERGENCIAS.TXT')
     print(f'    c{n+1}_TOTCANAL.TXT')
-    print()
 
-print('/nFim do programa.')
+print('\nFim do programa')
