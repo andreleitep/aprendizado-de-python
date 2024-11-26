@@ -45,13 +45,18 @@ try:
                 lista.append(f'Linha {v+1} - Erro desconhecido. Acionar a equipe de TI.')
                     # Relatório de divergências
             else:
+                
                 if listaLinhaV[0] in linhaDict:
                     listaLinhaV[1] = int(listaLinhaV[1])
-                    linhaDict[listaLinhaV[0]].update({
-                        'QtVendas' : listaLinhaV[1],
-                        'Status' : listaLinhaV[2],
-                        'Canal' : listaLinhaV[3]
-                        })
+                    if 'QtVendas' in linhaDict[listaLinhaV[0]]:
+                        linhaDict[listaLinhaV[0]]['QtVendas'] += listaLinhaV[1]
+                    else:
+                        linhaDict[listaLinhaV[0]].update({
+                            'QtVendas' : listaLinhaV[1],
+                            'Status' : listaLinhaV[2],
+                            'Canal' : listaLinhaV[3]
+                            })
+                        flag = True
                 else:
                     lista.append(f'Linha {v+1} - Código de Produto não encontrado {listaLinhaV[0]}')
                         # Relatório de Divergências
@@ -62,6 +67,8 @@ try:
         # Necessidade de transferência Armazém para CO
 
         saida2 = open(f'c{i+1}_TRANSFERE.TXT', 'w')
+        
+        QtVendas = 0
         
         saida2.write('Necessidade de transferência Armazém para CO\n\n')
         saida2.write('Produto  EstInicial  QtMin  QtVendas  Estq.após  Necess.  Transf. de\n')
@@ -123,14 +130,26 @@ try:
 
         saida3.close()
 
+        linhaDict = {}
+        p = 0
+        v = 0
+        lista = []
         i += 1
         
 except FileNotFoundError:
-    print(f'Arquivo pertencente ao {i+1}º caso teste não encontrado.')
-    print('Os arquivos de testes devem ser nomeado da seguinte maneira:')
-    print('\nc#_produtos.txt')
-    print('c#_vendas.txt\n')
-    print('substituindo o "#" pelo número do caso teste que se deseja fazer.\n\n')
+    print('\n', '-'*30, '| ERROR |', '-'*30)
+    print('|', f'{"":69}', '|')
+    print('|', f'{"":69}', '|')
+    print('|', f'{f"Arquivo pertencente ao {i+1}º caso teste não encontrado.":^69}', '|')
+    print('|', f'{"Os arquivos de testes devem ser nomeado da seguinte maneira:":^69}', '|')
+    print('|', f'{"":69}', '|')
+    print('|', f'{"c#_produtos.txt":^69}', '|')
+    print('|', f'{"c#_vendas.txt":^69}', '|')
+    print('|', f'{"":69}', '|')
+    print('|', f'{"substituindo o # pelo número do caso teste que se deseja fazer.":^69}', '|')
+    print('|', f'{"":69}', '|')
+    print('|', f'{"":69}', '|')
+    print('', f'-'*71, '\n')
 
 
 for n in range(i):

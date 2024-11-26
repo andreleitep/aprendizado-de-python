@@ -2,7 +2,7 @@ Necessidade de transferência Armazém para CO
 
 Produto  EstInicial  QtMin  QtVendas  Estq.após  Necess.  Transf. de
                                          Vendas            Arm p/ CO
-  12350        1299    980       544        755      225         225
+  12350        1299    980       890        409      571         571
   12400         544    440       807       -263      703         703
   12450         567    260       138        429        0           0
   12500         813    780       196        617      163         163
